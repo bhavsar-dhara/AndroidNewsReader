@@ -1,4 +1,4 @@
-package edu.neu.massmutual.dharabhavsar.androidnewsreader;
+package edu.neu.massmutual.dharabhavsar.androidnewsreader.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,12 +7,14 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
+import edu.neu.massmutual.dharabhavsar.androidnewsreader.R;
+
 /**
  * Created by Dhara on 4/3/2016.
  */
 public class LoadingReaderActivity extends Activity {
 
-    private static final int LOADING_TIME = 2500;
+    private static final int LOADING_TIME = 1500;
     private static final String LOG_TAG = "LoadingReaderActivity";
 
     @Override

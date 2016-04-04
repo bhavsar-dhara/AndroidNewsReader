@@ -1,4 +1,4 @@
-package edu.neu.massmutual.dharabhavsar.androidnewsreader;
+package edu.neu.massmutual.dharabhavsar.androidnewsreader.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import edu.neu.massmutual.dharabhavsar.androidnewsreader.R;
+import edu.neu.massmutual.dharabhavsar.androidnewsreader.utils.Constants;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.NEWS_API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+
     }
 
     @Override
