@@ -8,6 +8,8 @@ import retrofit2.http.GET;
  * Created by Dhara on 4/4/2016.
  */
 public interface NYTimesAPI {
+
     @GET(Constants.NEWS_API_KEY)
     Call<ApiResponse> getNews();
 }
+

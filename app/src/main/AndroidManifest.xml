@@ -25,6 +25,8 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity android:name=".ui.DisplayNews"></activity>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

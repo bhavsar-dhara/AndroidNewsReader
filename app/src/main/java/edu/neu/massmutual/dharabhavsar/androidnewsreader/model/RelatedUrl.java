@@ -1,7 +1,7 @@
 package edu.neu.massmutual.dharabhavsar.androidnewsreader.model;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
 
@@ -11,44 +11,47 @@ import javax.annotation.Generated;
 @Generated("org.jsonschema2pojo")
 public class RelatedUrl {
 
+    @SerializedName("suggested_link_text")
+    @Expose
     private String suggestedLinkText;
+    @SerializedName("url")
+    @Expose
     private String url;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
-     * @return The suggestedLinkText
+     *
+     * @return
+     * The suggestedLinkText
      */
     public String getSuggestedLinkText() {
         return suggestedLinkText;
     }
 
     /**
-     * @param suggestedLinkText The suggested_link_text
+     *
+     * @param suggestedLinkText
+     * The suggested_link_text
      */
     public void setSuggestedLinkText(String suggestedLinkText) {
         this.suggestedLinkText = suggestedLinkText;
     }
 
     /**
-     * @return The url
+     *
+     * @return
+     * The url
      */
     public String getUrl() {
         return url;
     }
 
     /**
-     * @param url The url
+     *
+     * @param url
+     * The url
      */
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
     }
 
 }

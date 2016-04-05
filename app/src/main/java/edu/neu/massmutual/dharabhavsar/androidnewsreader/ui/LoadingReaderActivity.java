@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
 
 import edu.neu.massmutual.dharabhavsar.androidnewsreader.R;
 
@@ -14,7 +13,7 @@ import edu.neu.massmutual.dharabhavsar.androidnewsreader.R;
  */
 public class LoadingReaderActivity extends Activity {
 
-    private static final int LOADING_TIME = 1500;
+    private static final int LOADING_TIME = 350;
     private static final String LOG_TAG = "LoadingReaderActivity";
 
     @Override
@@ -22,7 +21,7 @@ public class LoadingReaderActivity extends Activity {
         super.onCreate(savedInstanceState);
         Log.e(LOG_TAG, "LoadingReaderActivity started");
         setContentView(R.layout.loading_screen);
-        findViewById(R.id.main_spinner).setVisibility(View.VISIBLE);
+//        findViewById(R.id.main_spinner).setVisibility(View.VISIBLE);
 
         new Handler().postDelayed(new Runnable() {
             @Override
