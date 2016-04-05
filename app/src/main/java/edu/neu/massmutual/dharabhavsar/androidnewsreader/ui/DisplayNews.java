@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -56,6 +57,9 @@ public class DisplayNews extends Activity {
 //            Log.e(LOG_TAG, "in CATCH");
             header.setImageResource(R.mipmap.ic_launcher);
         }*/
+
+        NestedScrollView nestedScrollView = (NestedScrollView) findViewById(R.id.nest_scroll);
+        nestedScrollView.scrollTo(0, 0);
 
         webview = (WebView) findViewById(R.id.news_article);
         webview.setWebViewClient(new WebViewClient() {

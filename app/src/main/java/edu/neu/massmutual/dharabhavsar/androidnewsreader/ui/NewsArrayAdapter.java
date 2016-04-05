@@ -1,6 +1,8 @@
 package edu.neu.massmutual.dharabhavsar.androidnewsreader.ui;
 
 import android.content.Context;
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +12,10 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import edu.neu.massmutual.dharabhavsar.androidnewsreader.R;
 import edu.neu.massmutual.dharabhavsar.androidnewsreader.model.Result;
@@ -44,17 +49,27 @@ public class NewsArrayAdapter extends ArrayAdapter<Result> {
             convertView = inflater.inflate(R.layout.news_list_adapter, parent, false);
             holder.mTextViewTitle = (TextView) convertView.findViewById(R.id.news_title);
             holder.mImageView = (ImageView) convertView.findViewById(R.id.news_thumbnail);
+            holder.mTextViewDate = (TextView) convertView.findViewById(R.id.news_date);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        String imageLink = news.getThumbnailStandard();
-
-//        if (imageLink != null)
-//            Log.e(LOG_TAG, imageLink);
-
         holder.mTextViewTitle.setText(news.getTitle());
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+//        Log.e(LOG_TAG, "news.getCreatedDate() = " + news.getCreatedDate());
+        Date dateObj = new Date();
+        try {
+            dateObj = sdf.parse(news.getCreatedDate());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Log.e(LOG_TAG, "in ParseException CATCH");
+        }
+        String dateFormat = "MM/dd/yy hh:mm a"; // 09/21/2011 02:17 pm
+        holder.mTextViewDate.setText(DateFormat.format(dateFormat, dateObj));
+
+        String imageLink = news.getThumbnailStandard();
         try {
 //            Log.e(LOG_TAG, "in TRY Picasso");
             Picasso.with(this.context)
@@ -76,6 +91,7 @@ public class NewsArrayAdapter extends ArrayAdapter<Result> {
     public static class ViewHolder {
         public ImageView mImageView;
         public TextView mTextViewTitle;
+        public TextView mTextViewDate;
 
 //        public ViewHolder(View v) {
 //            super(v);
